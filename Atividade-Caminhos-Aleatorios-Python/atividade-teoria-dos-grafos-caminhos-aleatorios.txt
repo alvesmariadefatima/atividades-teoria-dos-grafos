@@ -1,0 +1,27 @@
+import random
+
+L=[]
+for v1 in range(15):
+  L.append([])
+
+with open('/content/arestas - Maria de Fátima Nunes Alves.txt', 'r') as arquivo:
+    conteudo = arquivo.read()
+    print(conteudo)
+
+with open('/content/arestas - Maria de Fátima Nunes Alves.txt', 'r') as arquivo:
+  for linha in arquivo:
+      v1, v2 = map(int, linha.split())
+      L[v1].append(v2)
+      L[v2].append(v1)
+
+def funcaoA(b, c):
+  print(b)
+
+  if(b == c):
+      return
+
+  b =  random.choice(L[b]) 
+
+  return funcaoA(b, c)
+
+funcaoA(0, 14)
